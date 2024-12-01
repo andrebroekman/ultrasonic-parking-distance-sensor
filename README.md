@@ -7,6 +7,7 @@ Static ultrasonic distance measurement device for accurately parking a vehicle i
 - media; a couple of photographs as well as a short video clip as viewer from the driver's perspective what the LED response is when parking a vehicle.
 
 ## Photos
-A couple of pictures of the hardware and installation in the front of the garage, right under the workbench (can be found in the image folder in repository).
+A couple of pictures of the hardware and installation in the front of the garage, right under the workbench (can be found in the image folder in repository). The enclosure is attached using two strong neodinium magnets that accomodate through hole bolts. The hardware is light enough for magnetic attachment to the steel workbench with the power plug entering from the real, alongside the potensiometer hidden from view. The overall response of the system proved consistant and accurate after a few tests.
+I have yet to test whether a vehicle that contains built-in ultrasonic distance sensor will impact the sensor or hardware performance.
 ![alt text](https://github.com/andrebroekman/ultrasonic-parking-distance-sensor/blob/main/media/photo2.jpg?raw=true)
 ![alt text](https://github.com/andrebroekman/ultrasonic-parking-distance-sensor/blob/main/media/photo1.jpg?raw=true)
