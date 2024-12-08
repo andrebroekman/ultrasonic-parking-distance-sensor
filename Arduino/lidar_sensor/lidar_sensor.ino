@@ -1,4 +1,4 @@
-"""
+/*
 Date: 2024-12-01
 Author: Dr. Andre Broekman
 
@@ -6,9 +6,9 @@ Static LiDAR distance measurement device for accurately parking a motor vehicle
 
 Potentiometer sensor: 0-1024 step values
 Map this to a 0 - 150 cm range that defines an offset.
-The offset measurement is subtracted from the distance measurement of the ultrasonic distance sensor;
-This calculated parameter is referred to as the “value”
-The transition distance is set to 70 cm that defines the “active” region as you park.
+The offset measurement is subtracted from the distance measurement of the ultrasonic distance sensor.
+This calculated parameter is referred to as the *value*
+The transition distance is set to 70 cm that defines the *active* region as you park.
 
 Based on the value:
 If the value is less than zero, light up the LED permanently, i.e. correct parking position.
@@ -20,7 +20,7 @@ Otherwise, the sensor is within the transition zone. A 300ms window is defined f
 
 The resulting behaviour is an increasing shorter LED flash until the correct distance is achieved, whereafter
 the LED remains lit continuously.
-"""
+*/
 
 // Arduino Nano Type C
 
@@ -70,12 +70,15 @@ void setup() {
 void loop() {
   // Update the offset measurement
   delay(3);
-  offset = analogRead(POT_ANALOG);
-  delay(3);
+  // Get a new reading from the distance sensor during the first minute from power on
+  if (millis() < 60000) {
+    offset = analogRead(POT_ANALOG);
+    delay(3);
+  }
+  
   // Map potensiometer ADC value between 0 cm and 150 cm
   int offset_cm = map(offset, 0, 1023, 0, 150);
 
-  // Get a new reading from the distance sensor
   int distance = sensor.getCM();
 
   // Calculate the measurement and update the blink LED accordingly
